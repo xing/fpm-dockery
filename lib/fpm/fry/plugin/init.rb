@@ -3,7 +3,7 @@ require 'fpm/fry/plugin'
 #
 # This plugin is a low-level plugin and is used by other plugins such as "service".
 #
-# @example in a recipe when using the image "ubuntu:16.04"
+# @example in a recipe when using the image "ubuntu:22.04"
 #   plugin 'init'
 #   init.systemd? #=> true
 #   init.sysv? #=> false

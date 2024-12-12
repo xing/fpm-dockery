@@ -5,7 +5,7 @@ task :default => "test:units"
 
 task :test => "test:all"
 
-IMAGES = %w(ubuntu:12.04 ubuntu:14.04 ubuntu:16.04 ubuntu:18.04 debian:7 debian:8 debian:9 centos:centos7)
+IMAGES = %w(ubuntu:20.04 ubuntu:22.04 ubuntu:24.04 debian:11 debian:12)
 
 namespace :test do
   task :setup do

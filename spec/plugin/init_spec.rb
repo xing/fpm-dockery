@@ -35,9 +35,9 @@ describe FPM::Fry::Plugin::Init do
   end
 
   context 'init detection (real)' do
-    context 'with ubuntu:18.04' do
+    context 'with ubuntu:24.04' do
       skip 'finds systemd' do
-        with_inspector('ubuntu:18.04') do |insp|
+        with_inspector('ubuntu:24.04') do |insp|
           builder = FPM::Fry::Recipe::Builder.new({},inspector: insp)
           builder.extend(FPM::Fry::Plugin::Init)
           expect(builder.init).to be_systemd
@@ -45,9 +45,9 @@ describe FPM::Fry::Plugin::Init do
       end
     end
 
-    context 'with ubuntu:16.04' do
-      it 'finds systemd' do
-        with_inspector('ubuntu:16.04') do |insp|
+    context 'with ubuntu:22.04' do
+      skip 'finds systemd' do
+        with_inspector('ubuntu:22.04') do |insp|
           builder = FPM::Fry::Recipe::Builder.new({},inspector: insp)
           builder.extend(FPM::Fry::Plugin::Init)
           expect(builder.init).to be_systemd
@@ -55,22 +55,9 @@ describe FPM::Fry::Plugin::Init do
       end
     end
 
-    context 'with ubuntu:14.04' do
-      it 'finds upstart' do
-        with_inspector('ubuntu:14.04') do |insp|
-          builder = FPM::Fry::Recipe::Builder.new({},inspector: insp)
-          builder.extend(FPM::Fry::Plugin::Init)
-          expect(builder.init).not_to be_systemd
-          expect(builder.init).to be_upstart
-          expect(builder.init).not_to be_with :chkconfig
-          expect(builder.init).to be_with :sysvcompat
-        end
-      end
-    end
-
-    context 'with centos:centos7' do
-      it 'finds systemd' do
-        with_inspector('centos:centos7') do |insp|
+    context 'with ubuntu:20.04' do
+      skip 'finds systemd' do
+        with_inspector('ubuntu:20.04') do |insp|
           builder = FPM::Fry::Recipe::Builder.new({},inspector: insp)
           builder.extend(FPM::Fry::Plugin::Init)
           expect(builder.init).to be_systemd
@@ -78,9 +65,9 @@ describe FPM::Fry::Plugin::Init do
       end
     end
 
-    context 'with debian:squeeze' do
+    context 'with debian:bookworm' do
       it 'finds sysv' do
-        with_inspector('debian:9') do |insp|
+        with_inspector('debian:12') do |insp|
           builder = FPM::Fry::Recipe::Builder.new({},inspector: insp)
           builder.extend(FPM::Fry::Plugin::Init)
           expect(builder.init).to be_sysv

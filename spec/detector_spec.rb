@@ -91,11 +91,11 @@ LSB
 
   end
 
-  context 'with ubuntu:18.04' do
+  context 'with ubuntu:24.04' do
 
     let(:result) do
       result = nil
-      with_inspector('ubuntu:18.04') do |inspector|
+      with_inspector('ubuntu:24.04') do |inspector|
         result = Detector.detect(inspector)
       end
       result
@@ -105,12 +105,12 @@ LSB
       expect(result[:distribution]).to eq('ubuntu')
     end
 
-    it 'finds release 18.04' do
-      expect(result[:release]).to eq('18.04')
+    it 'finds release 24.04' do
+      expect(result[:release]).to eq('24.04')
     end
 
-    it 'finds codename bionic' do
-      expect(result[:codename]).to eq('bionic')
+    it 'finds codename noble' do
+      expect(result[:codename]).to eq('noble')
     end
 
     it 'finds flavour debian' do
@@ -119,11 +119,11 @@ LSB
 
   end
 
-  context 'with ubuntu:16.04' do
+  context 'with ubuntu:22.04' do
 
     let(:result) do
       result = nil
-      with_inspector('ubuntu:16.04') do |inspector|
+      with_inspector('ubuntu:22.04') do |inspector|
         result = Detector.detect(inspector)
       end
       result
@@ -133,12 +133,12 @@ LSB
       expect(result[:distribution]).to eq('ubuntu')
     end
 
-    it 'finds release 16.04' do
-      expect(result[:release]).to eq('16.04')
+    it 'finds release 22.04' do
+      expect(result[:release]).to eq('22.04')
     end
 
-    it 'finds codename xenial' do
-      expect(result[:codename]).to eq('xenial')
+    it 'finds codename jammy' do
+      expect(result[:codename]).to eq('jammy')
     end
 
     it 'finds flavour debian' do
@@ -147,11 +147,11 @@ LSB
 
   end
 
-  context 'with ubuntu:14.04' do
+  context 'with ubuntu:20.04' do
 
     let(:result) do
       result = nil
-      with_inspector('ubuntu:14.04') do |inspector|
+      with_inspector('ubuntu:20.04') do |inspector|
         result = Detector.detect(inspector)
       end
       result
@@ -161,40 +161,12 @@ LSB
       expect(result[:distribution]).to eq('ubuntu')
     end
 
-    it 'finds release 14.04' do
-      expect(result[:release]).to eq('14.04')
+    it 'finds release 20.04' do
+      expect(result[:release]).to eq('20.04')
     end
 
-    it 'finds codename trusty' do
-      expect(result[:codename]).to eq('trusty')
-    end
-
-    it 'finds flavour debian' do
-      expect(result[:flavour]).to eq('debian')
-    end
-
-  end
-
-  context 'with ubuntu:12.04' do
-
-    let(:result) do
-      result = nil
-      with_inspector('ubuntu:12.04') do |inspector|
-        result = Detector.detect(inspector)
-      end
-      result
-    end
-
-    it 'finds ubuntu' do
-      expect(result[:distribution]).to eq('ubuntu')
-    end
-
-    it 'finds release 12.04' do
-      expect(result[:release]).to eq('12.04')
-    end
-
-    it 'finds codename precise' do
-      expect(result[:codename]).to eq('precise')
+    it 'finds codename focal' do
+      expect(result[:codename]).to eq('focal')
     end
 
     it 'finds flavour debian' do
@@ -203,11 +175,11 @@ LSB
 
   end
 
-  context 'with debian:7' do
+  context 'with debian:11' do
 
     let(:result) do
       result = nil
-      with_inspector('debian:7') do |inspector|
+      with_inspector('debian:11') do |inspector|
         result = Detector.detect(inspector)
       end
       result
@@ -217,12 +189,12 @@ LSB
       expect(result[:distribution]).to eq('debian')
     end
 
-    it 'finds release 7.*' do
-      expect(result[:release]).to match /\A7\.\d+/
+    it 'finds release 11.*' do
+      expect(result[:release]).to match /\A11\.\d+/
     end
 
-    it 'finds codename wheezy' do
-      expect(result[:codename]).to eq('wheezy')
+    it 'finds codename bullseye' do
+      expect(result[:codename]).to eq('bullseye')
     end
 
     it 'finds flavour debian' do
@@ -231,11 +203,11 @@ LSB
 
   end
 
-  context 'with debian:8' do
+  context 'with debian:12' do
 
     let(:result) do
       result = nil
-      with_inspector('debian:8') do |inspector|
+      with_inspector('debian:12') do |inspector|
         result = Detector.detect(inspector)
       end
       result
@@ -245,40 +217,16 @@ LSB
       expect(result[:distribution]).to eq('debian')
     end
 
-    it 'finds release 8.*' do
-      expect(result[:release]).to match /\A8\.\d+/
+    it 'finds release 12.*' do
+      expect(result[:release]).to match /\A12\.\d+/
     end
 
-    it 'finds codename jessie' do
-      expect(result[:codename]).to eq('jessie')
+    it 'finds codename bookworm' do
+      expect(result[:codename]).to eq('bookworm')
     end
 
     it 'finds flavour debian' do
       expect(result[:flavour]).to eq('debian')
-    end
-
-  end
-
-  context 'with centos:centos7' do
-
-    let(:result) do
-      result = nil
-      with_inspector('centos:centos7') do |inspector|
-        result = Detector.detect(inspector)
-      end
-      result
-    end
-
-    it 'finds centos' do
-      expect(result[:distribution]).to eq('centos')
-    end
-
-    it 'finds release 7.*' do
-      expect(result[:release]).to match /\A7\.\d+/
-    end
-
-    it 'finds flavour redhat' do
-      expect(result[:flavour]).to eq('redhat')
     end
 
   end

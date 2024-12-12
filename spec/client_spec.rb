@@ -62,7 +62,7 @@ describe FPM::Fry::Client do
       end
 
       it 'raises (real)' do
-        with_container('ubuntu:16.04') do |id|
+        with_container('ubuntu:22.04') do |id|
           expect{
             real_docker.read(id,'foo'){}
           }.to raise_error(FPM::Fry::Client::FileNotFound) do |e|

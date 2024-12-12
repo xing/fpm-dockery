@@ -71,7 +71,7 @@ describe FPM::Fry::Command::Cook do
 
     context 'trivial case' do
       before(:each) do
-        subject.image = 'ubuntu:16.04'
+        subject.image = 'ubuntu:22.04'
         subject.recipe = File.expand_path('../data/recipe.rb',File.dirname(__FILE__))
       end
       it 'works' do
