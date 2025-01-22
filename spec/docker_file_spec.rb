@@ -97,7 +97,7 @@ SHELL
 FROM <base>
 WORKDIR /tmp/build
 ARG DEBIAN_FRONTEND=noninteractive
-RUN apt-get install --yes arg blub foo
+RUN apt-get install --no-install-recommends --yes arg blub foo
 COPY .build.sh /tmp/build/
 CMD /tmp/build/.build.sh
 SHELL
@@ -152,7 +152,7 @@ SHELL
 FROM <base>
 WORKDIR /tmp/build
 ARG DEBIAN_FRONTEND=noninteractive
-RUN apt-get install --yes D a b e\\=1.0.0
+RUN apt-get install --no-install-recommends --yes D a b e\\=1.0.0
 COPY .build.sh /tmp/build/
 CMD /tmp/build/.build.sh
 SHELL
@@ -177,7 +177,7 @@ SHELL
 FROM <base>
 WORKDIR /tmp/build
 ARG DEBIAN_FRONTEND=noninteractive
-RUN apt-get install --yes a
+RUN apt-get install --no-install-recommends --yes a
 COPY .build.sh /tmp/build/
 CMD /tmp/build/.build.sh
 SHELL
@@ -240,7 +240,7 @@ FROM <base>
 WORKDIR /tmp/build
 probe a
 ARG DEBIAN_FRONTEND=noninteractive
-RUN apt-get install --yes a
+RUN apt-get install --no-install-recommends --yes a
 probe b
 COPY .build.sh /tmp/build/
 CMD /tmp/build/.build.sh

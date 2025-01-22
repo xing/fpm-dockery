@@ -141,7 +141,7 @@ module FPM; module Fry
               update = 'apt-get update && '
             end
             df[:dependencies] << "ARG DEBIAN_FRONTEND=noninteractive"
-            df[:dependencies] << "RUN #{update}apt-get install --yes #{Shellwords.join(build_dependencies)}"
+            df[:dependencies] << "RUN #{update}apt-get install --no-install-recommends --yes #{Shellwords.join(build_dependencies)}"
           when 'redhat'
             df[:dependencies] << "RUN yum -y install #{Shellwords.join(build_dependencies)}"
           else
